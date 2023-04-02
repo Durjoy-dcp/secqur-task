@@ -1,5 +1,5 @@
 import React from "react";
-
+import Event from "./Event";
 const Components = () => {
   return (
     <div>
@@ -7,8 +7,7 @@ const Components = () => {
         <div className="basis-1/12 bg-[#5BB8F1]">Sidebar</div>
         <div className="basis-10/12 bg-white">Information</div>
         <div className="basis-1/2 bg-white border border-[#D9D9D9] border-8 ">
-          {" "}
-          Events
+          <Event></Event>
         </div>
       </div>
     </div>
