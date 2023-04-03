@@ -7,7 +7,7 @@ const InfoContext = ({ children }) => {
   const [loading, setLoading] = useState(false);
   const [events, setEvents] = useState({});
   const [gender, setgenderNumber] = useState({ male: 0, female: 0 });
-
+  const [selected, setSelected] = useState(-1);
   const Info = {
     currentInfo,
     setCurrnetInfo,
@@ -19,6 +19,8 @@ const InfoContext = ({ children }) => {
     setEvents,
     gender,
     setgenderNumber,
+    selected,
+    setSelected,
   };
   return (
     <InformationContext.Provider value={Info}>

@@ -3,8 +3,6 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import InfoContext, { InformationContext } from "./InfoContext";
 
 const Sidebar = () => {
-  const { val } = useContext(InformationContext);
-  console.log(val);
   return (
     <div>
       <RxHamburgerMenu className="text-3xl ml-3" />

@@ -8,9 +8,11 @@ import { ref } from "firebase/database";
 import { db } from "../Firebase/firebase.init";
 import { InformationContext } from "./InfoContext";
 const Event = () => {
-  const { events, setEvents, gender, setgenderNumber } =
+  const { events, setEvents, gender, setgenderNumber, selected, setSelected } =
     useContext(InformationContext);
   const [sta, setSta] = useState();
+  const active = `bg-slate-600`;
+  const inactive = "";
 
   const getData = () => {
     onValue(
@@ -57,7 +59,9 @@ const Event = () => {
       </div>
       <div className="max-h-screen overflow-scroll">
         {Object.keys(events).map((event, id) => {
-          return <SingleEvent key={id} event={events[event]}></SingleEvent>;
+          return (
+            <SingleEvent key={id} id={id} event={events[event]}></SingleEvent>
+          );
         })}
       </div>
     </div>
