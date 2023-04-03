@@ -26,7 +26,7 @@ const Event = () => {
   }, []);
   return (
     <div>
-      <div className="flex justify-between p-3 navbar">
+      <div className="flex justify-between p-3 navbar ">
         <div>
           <p className="text-2xl font-bold navbar-start">Events</p>
         </div>
@@ -34,10 +34,12 @@ const Event = () => {
           <RxHamburgerMenu className="text-3xl" />
         </div>
       </div>
-      {Object.keys(events).map((event, id) => {
-        // console.log(events[element]);
-        return <SingleEvent key={id} event={events[event]}></SingleEvent>;
-      })}
+      <div className="max-h-screen overflow-scroll">
+        {Object.keys(events).map((event, id) => {
+          // console.log(events[element]);
+          return <SingleEvent key={id} event={events[event]}></SingleEvent>;
+        })}
+      </div>
     </div>
   );
 };
