@@ -1,8 +1,10 @@
-import React, { Children, createContext } from "react";
+import React, { Children, createContext, useState } from "react";
 export const InformationContext = createContext();
 
 const InfoContext = ({ children }) => {
-  const Info = { val: 42 };
+  const [currentInfo, setCurrnetInfo] = useState({});
+
+  const Info = { currentInfo, setCurrnetInfo };
   return (
     <InformationContext.Provider value={Info}>
       {children}
