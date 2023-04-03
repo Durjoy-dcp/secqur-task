@@ -5,8 +5,9 @@ const Infromation = () => {
 
   const { currentInfo } = useContext(InformationContext);
   if (Object.keys(currentInfo).length === 0) {
-    console.log("nothing here");
-    return;
+    return (
+      <h1 className="text-center font-bold text-4xl m-5">Select Any Event</h1>
+    );
   }
 
   if (loading) {
@@ -47,7 +48,7 @@ const Infromation = () => {
       </div>
       <div className="">
         <h3 className="font-bold text-2xl">{currentInfo.Gender}</h3>
-        <img src={imgurl} alt="" />
+        <img src={imgurl} style={{ maxHeight: "630px" }} alt="" />
       </div>
     </div>
   );

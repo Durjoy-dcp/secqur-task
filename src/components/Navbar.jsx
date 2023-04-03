@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
+import { InformationContext } from "./InfoContext";
 
 const Navbar = () => {
+  const { gender } = useContext(InformationContext);
   return (
     <div className="navbar bg-[#181C7B]">
       <div className="flex-1">
@@ -10,8 +12,8 @@ const Navbar = () => {
         </p>
       </div>
       <div className="flex-none gap-4 mr-4">
-        <div className="bg-[#92D050] px-4 py-2">25</div>
-        <div className="bg-[#E92518] px-4 py-2">25</div>
+        <div className="bg-[#92D050] px-4 py-2">{gender.male}</div>
+        <div className="bg-[#E92518] px-4 py-2">{gender.female}</div>
       </div>
     </div>
   );
