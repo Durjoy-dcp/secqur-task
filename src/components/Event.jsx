@@ -11,8 +11,16 @@ const Event = () => {
   const { events, setEvents, gender, setgenderNumber, selected, setSelected } =
     useContext(InformationContext);
   const [sta, setSta] = useState();
+  const [mainEvents, setMainEvents] = useState({});
   const active = `bg-slate-600`;
   const inactive = "";
+  const getDataWithLocation = (location) => {
+    const data = Object.keys(mainEvents)
+      .filter((event, id) => mainEvents[event].Location === location)
+      .map((event) => mainEvents[event]);
+    setEvents(data);
+    console.log(data);
+  };
 
   const getData = () => {
     onValue(
@@ -20,6 +28,7 @@ const Event = () => {
       (snapshot) => {
         const data = snapshot.val();
         console.log(data);
+        setMainEvents(data);
         setEvents(data);
       }
     );
@@ -43,7 +52,49 @@ const Event = () => {
           </p>
         </div>
         <div className="  navbar-end">
-          <RxHamburgerMenu className="text-3xl" />
+          <div className="dropdown dropdown-end">
+            <label tabIndex={0} className="btn btn-ghost ">
+              <div className="w-10 rounded-full">
+                <RxHamburgerMenu className="text-3xl" />
+              </div>
+            </label>
+            <ul
+              tabIndex={0}
+              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+            >
+              <li>
+                <div className="">
+                  Location
+                  <div className="flex flex-wrap ">
+                    <button
+                      className=" m-2 p-2  btn btn-xs"
+                      onClick={() => getDataWithLocation("Chennai")}
+                    >
+                      Chennai
+                    </button>
+                    <button
+                      onClick={() => getDataWithLocation("Hyderabad")}
+                      className=" m-2 p-2  btn btn-xs"
+                    >
+                      Hyderabad
+                    </button>
+                    <button
+                      className=" m-2 p-2 btn btn-xs "
+                      onClick={() => getDataWithLocation("Bangalore")}
+                    >
+                      Bangalore
+                    </button>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div>Gender</div>
+              </li>
+              <li>
+                <div>Logout</div>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
       <div className="max-h-screen overflow-scroll">

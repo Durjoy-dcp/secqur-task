@@ -3,6 +3,7 @@ import { InformationContext } from "./InfoContext";
 
 const Navbar = () => {
   const { gender } = useContext(InformationContext);
+
   return (
     <div className="navbar bg-[#181C7B]">
       <div className="flex-1">
