@@ -8,6 +8,7 @@ import { ref } from "firebase/database";
 import { db } from "../Firebase/firebase.init";
 const Event = () => {
   const [events, setEvents] = useState({});
+  const [sta, setSta] = useState();
   const getData = () => {
     onValue(
       ref(db, "1qGs4CXNhDDcrDDbWrbqeLdhUUYiNWAMH_KmjB9j-bqk/Sheet1"),
@@ -21,14 +22,24 @@ const Event = () => {
       }
     );
   };
+  const setEventHandler = () => {
+    console.log("working");
+  };
   useEffect(() => {
     getData();
+    console.log(sta);
   }, []);
+
   return (
     <div>
       <div className="flex justify-between p-3 navbar ">
         <div>
-          <p className="text-2xl font-bold navbar-start">Events</p>
+          <p
+            className="text-2xl font-bold navbar-start"
+            onClick={setEventHandler}
+          >
+            Events
+          </p>
         </div>
         <div className="  navbar-end">
           <RxHamburgerMenu className="text-3xl" />
