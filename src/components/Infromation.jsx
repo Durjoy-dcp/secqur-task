@@ -15,6 +15,7 @@ const Infromation = () => {
     return <Spinner></Spinner>;
   }
   const date = new Date(currentInfo?.Date);
+  console.log(currentInfo.Date.toString());
   const day = date.getDate().toString().padStart(2, "0");
   const month = (date.getMonth() + 1).toString().padStart(2, "0");
   const year = date.getFullYear().toString().slice(-2);
