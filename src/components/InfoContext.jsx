@@ -1,4 +1,4 @@
-import React, { Children, createContext, useState } from "react";
+import React, { Children, createContext, useEffect, useState } from "react";
 export const InformationContext = createContext();
 
 const InfoContext = ({ children }) => {
@@ -22,6 +22,19 @@ const InfoContext = ({ children }) => {
     selected,
     setSelected,
   };
+  useEffect(() => {
+    let femaleNumber = 0;
+    let maleNumber = 0;
+    Object.keys(events).forEach((event) => {
+      if (events[event].Gender == "Female") {
+        femaleNumber++;
+      } else {
+        maleNumber++;
+      }
+    });
+    const genderNumber = { male: maleNumber, female: femaleNumber };
+    setgenderNumber(genderNumber);
+  }, [events]);
   return (
     <InformationContext.Provider value={Info}>
       {children}

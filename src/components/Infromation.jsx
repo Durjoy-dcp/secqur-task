@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { InformationContext } from "./InfoContext";
+import Spinner from "./Spinner";
 const Infromation = () => {
   const { imgurl, setImgUrl, loading } = useContext(InformationContext);
 
@@ -11,7 +12,7 @@ const Infromation = () => {
   }
 
   if (loading) {
-    return "loading";
+    return <Spinner></Spinner>;
   }
   const date = new Date(currentInfo?.Date);
   const day = date.getDate().toString().padStart(2, "0");

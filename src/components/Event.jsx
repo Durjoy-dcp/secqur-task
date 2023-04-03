@@ -21,17 +21,6 @@ const Event = () => {
         const data = snapshot.val();
         console.log(data);
         setEvents(data);
-        let maleNumber = 0;
-        let femaleNumber = 0;
-        Object.keys(events).forEach((event) => {
-          if (events[event].Gender == "Female") {
-            femaleNumber++;
-          } else {
-            maleNumber++;
-          }
-        });
-        const genderNumber = { male: maleNumber, female: femaleNumber };
-        setgenderNumber(genderNumber);
       }
     );
   };
