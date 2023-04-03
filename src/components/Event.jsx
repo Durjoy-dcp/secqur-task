@@ -12,6 +12,7 @@ const Event = () => {
           <RxHamburgerMenu className="text-3xl" />
         </div>
       </div>
+
       <SingleEvent></SingleEvent>
     </div>
   );

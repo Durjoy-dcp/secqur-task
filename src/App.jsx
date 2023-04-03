@@ -8,8 +8,22 @@ import { db } from "./Firebase/firebase.init";
 import Event from "./components/Event";
 import Components from "./components/Components";
 import Navbar from "./components/Navbar";
+import Home from "./components/Home";
+
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 function App() {
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Home></Home>,
+    },
+    {
+      path: "/navbar",
+      element: <Navbar></Navbar>,
+    },
+  ]);
+
   // useEffect(() => {
   //   onValue(
   //     ref(db, "1qGs4CXNhDDcrDDbWrbqeLdhUUYiNWAMH_KmjB9j-bqk/Sheet1"),
@@ -37,8 +51,7 @@ function App() {
 
   return (
     <div>
-      <Navbar></Navbar>
-      <Components></Components>
+      <RouterProvider router={router} />
     </div>
 
     // <div className="hero min-h-screen bg-base-200">
