@@ -1,11 +1,16 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { InformationContext } from "./InfoContext";
-
 const Infromation = () => {
+  const { imgurl, setImgUrl, loading } = useContext(InformationContext);
+
   const { currentInfo } = useContext(InformationContext);
   if (Object.keys(currentInfo).length === 0) {
     console.log("nothing here");
     return;
+  }
+
+  if (loading) {
+    return "loading";
   }
   const date = new Date(currentInfo?.Date);
   const day = date.getDate().toString().padStart(2, "0");
@@ -34,16 +39,15 @@ const Infromation = () => {
         <div className="text-xl mt-3">
           <p>Description:</p>
           <p>
-            Name detected at <br /> Location on date
+            {`${currentInfo?.Name} detected at `}
+            <br />
+            {`${currentInfo?.Location} on ${dateString}`}
           </p>
         </div>
       </div>
       <div className="">
-        <h3 className="font-bold text-2xl">Female</h3>
-        <img
-          src="https://firebasestorage.googleapis.com/v0/b/sec-task2.appspot.com/o/Image%2FFemale01.jpg?alt=media&token=b9b007b0-661e-4fe9-9d59-d6e26250af93"
-          alt=""
-        />
+        <h3 className="font-bold text-2xl">{currentInfo.Gender}</h3>
+        <img src={imgurl} alt="" />
       </div>
     </div>
   );
