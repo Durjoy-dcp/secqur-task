@@ -20,8 +20,8 @@ const Event = () => {
   const getDataWithDate = (e) => {
     e.persist();
     setDate(e.target.value);
-    console.log("ss", dateInputRef.current);
-    console.log(date);
+    // console.log("ss", dateInputRef.current);
+    // console.log(date);
   };
 
   const getDataWithLocation = (location) => {
@@ -29,14 +29,14 @@ const Event = () => {
       .filter((event, id) => mainEvents[event].Location === location)
       .map((event) => mainEvents[event]);
     setEvents(data);
-    console.log(data);
+    // console.log(data);
   };
   const getDataWithGender = (gender) => {
     const data = Object.keys(mainEvents)
       .filter((event, id) => mainEvents[event].Gender === gender)
       .map((event) => mainEvents[event]);
     setEvents(data);
-    console.log(data);
+    // console.log(data);
   };
 
   const getData = () => {
@@ -44,14 +44,14 @@ const Event = () => {
       ref(db, "1qGs4CXNhDDcrDDbWrbqeLdhUUYiNWAMH_KmjB9j-bqk/Sheet1"),
       (snapshot) => {
         const data = snapshot.val();
-        console.log(data);
+        // console.log(data);
         setMainEvents(data);
         setEvents(data);
       }
     );
   };
   const setEventHandler = () => {
-    console.log("working");
+    // console.log("working");
   };
   useEffect(() => {
     getData();

@@ -15,10 +15,10 @@ const SingleEvent = ({ event, id }) => {
   } = useContext(InformationContext);
 
   const setUrlOfPic = (name) => {
-    console.log("dhukse");
+    // console.log("dhukse");
     const pathRef = ref(storage, `Image/${name}.jpg`);
     getDownloadURL(pathRef).then((url) => {
-      console.log(url);
+      // console.log(url);
       setImgUrl(url);
       setLoading(false);
     });
